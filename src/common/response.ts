@@ -1,6 +1,6 @@
 import { CallHandler, Injectable, NestInterceptor } from '@nestjs/common';
 import { Observable, map } from 'rxjs';
-
+ // 响应拦截器
 interface Data<T> {
   data: T;
   message: string;
