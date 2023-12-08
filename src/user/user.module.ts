@@ -9,5 +9,6 @@ import { Tags } from './entities/tags.entity';
   imports: [TypeOrmModule.forFeature([User, Tags])],
   controllers: [UserController],
   providers: [UserService],
+  exports: [UserService],
 })
 export class UserModule {}

@@ -8,12 +8,32 @@ import { Tags } from './entities/tags.entity';
 
 @Injectable()
 export class UserService {
+  private readonly userTest: any[];
+
   constructor(
     @InjectRepository(User)
     private readonly user: Repository<User>,
     @InjectRepository(Tags)
     private readonly tags: Repository<Tags>,
-  ) {}
+  ) {
+    this.userTest = [
+      {
+        userId: 1,
+        username: 'john',
+        password: 'changeme',
+      },
+      {
+        userId: 2,
+        username: 'chris',
+        password: 'secret',
+      },
+      {
+        userId: 3,
+        username: 'maria',
+        password: 'guess',
+      }
+    ]
+  }
 
   create(createUserDto: CreateUserDto) {
     const data = new User();
@@ -41,6 +61,11 @@ export class UserService {
       data,
       count,
     };
+  }
+
+  async findOne(name: string): Promise<User | undefined>{
+    const data = await this.userTest.find((user) => user.name === name);
+    return data;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {

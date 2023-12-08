@@ -7,6 +7,7 @@ import { TestModule } from './test/test.module';
 import { UserModule } from './user/user.module';
 import { UploadModule } from './upload/upload.module';
 import { GuardModule } from './guard/guard.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { GuardModule } from './guard/guard.module';
     UserModule,
     UploadModule,
     GuardModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],
